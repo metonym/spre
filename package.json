@@ -17,6 +17,10 @@
     "prepack": "vite build && tsc",
     "preview": "vite preview"
   },
+  "dependencies": {
+    "magic-string": "^0.25.7",
+    "svelte": "^3.42.1"
+  },
   "devDependencies": {
     "typescript": "^4.3.5",
     "vite": "^2.4.3"
@@ -28,13 +32,11 @@
   "homepage": "https://github.com/metonym/spre",
   "bugs": "https://github.com/metonym/spre/issues",
   "keywords": [
-    "vite"
+    "svelte",
+    "preprocess",
+    "rewrite imports"
   ],
   "files": [
     "dist"
-  ],
-  "dependencies": {
-    "magic-string": "^0.25.7",
-    "svelte": "^3.42.1"
-  }
+  ]
 }
