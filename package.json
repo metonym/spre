@@ -1,0 +1,40 @@
+{
+  "name": "spre",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Svelte preprocessing utilities",
+  "author": "Eric Liu (https://github.com/metonym)",
+  "main": "./dist/spre.umd.js",
+  "module": "./dist/spre.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/spre.es.js",
+      "require": "./dist/spre.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "prepack": "vite build && tsc",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5",
+    "vite": "^2.4.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metonym/spre"
+  },
+  "homepage": "https://github.com/metonym/spre",
+  "bugs": "https://github.com/metonym/spre/issues",
+  "keywords": [
+    "vite"
+  ],
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "magic-string": "^0.25.7",
+    "svelte": "^3.42.1"
+  }
+}

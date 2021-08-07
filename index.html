@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <script type="module">
+      import { preprocess } from "svelte/compiler";
+      import { spre } from "/src";
+
+      const source = `
+        <script>
+          import { Ad as Ad2 } from "svelte-lib";
+          import { Bridge, Card2 } from "svelte-lib";
+          import { Developer } from "svelte-lib";
+          import Default from "svelte-lib";
+          import * as all from "svelte-lib";
+          import { Card } from "other";
+        <\/script>
+      `;
+
+      preprocess(
+        source,
+        [
+          spre({
+            onImportDeclaration({
+              sourceName,
+              importName,
+              localName,
+              isDefaultImport,
+              isNamespaceImport,
+            }) {
+              if (sourceName !== "svelte-lib") return null;
+              if (isDefaultImport || !importName) return;
+              return `import ${localName} from "${sourceName}/lib/${importName}.svelte";`;
+            },
+          }),
+        ],
+        { filename: "filename.svelte" }
+      ).then((r) => {
+        console.log(r.code);
+      });
+    </script>
+  </body>
+</html>
